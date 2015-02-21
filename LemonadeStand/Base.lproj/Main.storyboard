@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LemonadeStand" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,282 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPF-3I-cql">
+                                <rect key="frame" x="9" y="28" width="315" height="112"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Lemons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3Q-bi-lrz">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="136" y="45" width="92" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Ice Cubes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnC-4r-qnF">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="136" y="82" width="136" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ON-K7-aMz">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="136" y="8" width="32" height="25"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Have:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwa-7s-f5k">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.70972741169999998" green="0.02208776384" blue="0.041374219900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="8" width="67" height="20"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.82816247460000003" blue="0.077888488929999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="p3Q-bi-lrz"/>
+                                        <exclude reference="TnC-4r-qnF"/>
+                                        <exclude reference="2ON-K7-aMz"/>
+                                        <exclude reference="Dwa-7s-f5k"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="p3Q-bi-lrz"/>
+                                        <include reference="TnC-4r-qnF"/>
+                                        <include reference="2ON-K7-aMz"/>
+                                        <include reference="Dwa-7s-f5k"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oa5-kV-NNB">
+                                <rect key="frame" x="9" y="299" width="315" height="131"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2: Mix Your Lemonade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-vf-LAo">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.11478769329999999" green="0.22850372990000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="8" width="213" height="21"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.82816247460000003" blue="0.077888488929999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="8kN-vf-LAo"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="8kN-vf-LAo"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-3F-9N3">
+                                <rect key="frame" x="9" y="447" width="315" height="114"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 3: Start Selling Your Lemonade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbD-tR-NR7">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.11478769329999999" green="0.22850372990000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="8" width="278" height="21"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.82668717280000004" green="0.87595533290000005" blue="0.84346064789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="RbD-tR-NR7"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="RbD-tR-NR7"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALd-2h-e4z">
+                                <rect key="frame" x="9" y="148" width="315" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1: Purchase Supplies " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co1-Et-7wa">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.11478769329999999" green="0.22850372990000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="8" width="176.5" height="19.5"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemons for $2:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGi-GL-25y">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="29" y="36" width="115.5" height="23"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ice Cubes for $1:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-1z-WOB">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="29" y="78" width="142.5" height="20"/>
+                                        </variation>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-yC-TUI">
+                                        <rect key="frame" x="-47" y="-14" width="94" height="29"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="253" y="78" width="94" height="29"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="addRemoveIceValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="K83-Fg-an1"/>
+                                        </connections>
+                                    </stepper>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2me-FD-miI">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="203" y="36" width="10" height="20.5"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdF-Ys-p81">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="203" y="78" width="10" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Gwr-gW-QwP">
+                                        <rect key="frame" x="-47" y="-14" width="94" height="29"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="253" y="36" width="94" height="29"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="addRemoveLemonsPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="owo-1d-OJI"/>
+                                            <action selector="addRemoveLemonsValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="cAG-eE-gRq"/>
+                                        </connections>
+                                    </stepper>
+                                </subviews>
+                                <color key="backgroundColor" red="0.82668717280000004" green="0.87595533290000005" blue="0.84346064789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="co1-Et-7wa"/>
+                                        <exclude reference="FGi-GL-25y"/>
+                                        <exclude reference="eIG-1z-WOB"/>
+                                        <exclude reference="bhb-yC-TUI"/>
+                                        <exclude reference="2me-FD-miI"/>
+                                        <exclude reference="cdF-Ys-p81"/>
+                                        <exclude reference="Gwr-gW-QwP"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="co1-Et-7wa"/>
+                                        <include reference="FGi-GL-25y"/>
+                                        <include reference="eIG-1z-WOB"/>
+                                        <include reference="bhb-yC-TUI"/>
+                                        <include reference="2me-FD-miI"/>
+                                        <include reference="cdF-Ys-p81"/>
+                                        <include reference="Gwr-gW-QwP"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ALd-2h-e4z" secondAttribute="trailing" constant="16" id="6v4-8n-QDc"/>
+                            <constraint firstItem="Ser-3F-9N3" firstAttribute="height" secondItem="ALd-2h-e4z" secondAttribute="height" id="Ayh-RM-S3l"/>
+                            <constraint firstItem="Ser-3F-9N3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="9" id="DGM-T1-tCH"/>
+                            <constraint firstItem="Ser-3F-9N3" firstAttribute="height" secondItem="xPF-3I-cql" secondAttribute="height" id="Iie-i3-F1u"/>
+                            <constraint firstItem="xPF-3I-cql" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="9" id="Ll4-U8-N68"/>
+                            <constraint firstItem="Oa5-kV-NNB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="9" id="O2i-ev-N06"/>
+                            <constraint firstItem="Ser-3F-9N3" firstAttribute="height" secondItem="Oa5-kV-NNB" secondAttribute="height" id="QQO-oe-Bj9"/>
+                            <constraint firstAttribute="trailing" secondItem="Oa5-kV-NNB" secondAttribute="trailing" constant="16" id="byU-rs-CYb"/>
+                            <constraint firstItem="ALd-2h-e4z" firstAttribute="top" secondItem="xPF-3I-cql" secondAttribute="bottom" constant="8" id="ddN-em-vOv"/>
+                            <constraint firstItem="xPF-3I-cql" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="28" id="hQs-D8-OJ8"/>
+                            <constraint firstAttribute="trailing" secondItem="xPF-3I-cql" secondAttribute="trailing" constant="16" id="iHv-yQ-csI"/>
+                            <constraint firstItem="Ser-3F-9N3" firstAttribute="top" secondItem="Oa5-kV-NNB" secondAttribute="bottom" constant="8" id="npZ-Ti-eKL"/>
+                            <constraint firstAttribute="trailing" secondItem="Ser-3F-9N3" secondAttribute="trailing" constant="16" id="pB1-Kt-qnv"/>
+                            <constraint firstItem="ALd-2h-e4z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="9" id="pSe-En-PX7"/>
+                            <constraint firstItem="Oa5-kV-NNB" firstAttribute="top" secondItem="ALd-2h-e4z" secondAttribute="bottom" constant="8" id="wfy-V7-lR6"/>
+                            <constraint firstAttribute="bottom" secondItem="Ser-3F-9N3" secondAttribute="bottom" constant="20" id="yRX-zY-ajR"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ll4-U8-N68"/>
+                                <exclude reference="hQs-D8-OJ8"/>
+                                <exclude reference="iHv-yQ-csI"/>
+                                <exclude reference="6v4-8n-QDc"/>
+                                <exclude reference="ddN-em-vOv"/>
+                                <exclude reference="pSe-En-PX7"/>
+                                <exclude reference="O2i-ev-N06"/>
+                                <exclude reference="byU-rs-CYb"/>
+                                <exclude reference="wfy-V7-lR6"/>
+                                <exclude reference="Ayh-RM-S3l"/>
+                                <exclude reference="DGM-T1-tCH"/>
+                                <exclude reference="Iie-i3-F1u"/>
+                                <exclude reference="QQO-oe-Bj9"/>
+                                <exclude reference="npZ-Ti-eKL"/>
+                                <exclude reference="pB1-Kt-qnv"/>
+                                <exclude reference="yRX-zY-ajR"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Ll4-U8-N68"/>
+                                <include reference="hQs-D8-OJ8"/>
+                                <include reference="iHv-yQ-csI"/>
+                                <include reference="6v4-8n-QDc"/>
+                                <include reference="ddN-em-vOv"/>
+                                <include reference="pSe-En-PX7"/>
+                                <include reference="O2i-ev-N06"/>
+                                <include reference="byU-rs-CYb"/>
+                                <include reference="wfy-V7-lR6"/>
+                                <include reference="Ayh-RM-S3l"/>
+                                <include reference="DGM-T1-tCH"/>
+                                <include reference="Iie-i3-F1u"/>
+                                <include reference="QQO-oe-Bj9"/>
+                                <include reference="npZ-Ti-eKL"/>
+                                <include reference="pB1-Kt-qnv"/>
+                                <include reference="yRX-zY-ajR"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="addRemoveLemons" destination="Gwr-gW-QwP" id="sa7-3c-WxM"/>
+                        <outlet property="availableCashLabel" destination="2ON-K7-aMz" id="R0y-U5-9DT"/>
+                        <outlet property="iceInventoryLabel" destination="TnC-4r-qnF" id="4E1-8S-SPC"/>
+                        <outlet property="inventoryContinerView" destination="xPF-3I-cql" id="jFd-VB-6kB"/>
+                        <outlet property="lemonInventoryLabel" destination="p3Q-bi-lrz" id="LBR-F1-Uwr"/>
+                        <outlet property="mixContainerView" destination="Oa5-kV-NNB" id="DYC-bB-Xdd"/>
+                        <outlet property="salesContainerView" destination="Ser-3F-9N3" id="UFO-Xp-lmE"/>
+                        <outlet property="suppliesContainerView" destination="ALd-2h-e4z" id="Mhh-qP-IVr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="136"/>
         </scene>
     </scenes>
 </document>
