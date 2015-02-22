@@ -13,6 +13,8 @@
 		050EF3961A982002002F2F73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 050EF3951A982002002F2F73 /* Images.xcassets */; };
 		050EF3991A982002002F2F73 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050EF3971A982002002F2F73 /* LaunchScreen.xib */; };
 		050EF3A51A982002002F2F73 /* LemonadeStandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EF3A41A982002002F2F73 /* LemonadeStandTests.swift */; };
+		0551D0201A99B2840068D2A8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551D01F1A99B2840068D2A8 /* Customer.swift */; };
+		0551D0221A99B3F10068D2A8 /* Lemonade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551D0211A99B3F10068D2A8 /* Lemonade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		050EF39E1A982002002F2F73 /* LemonadeStandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LemonadeStandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		050EF3A31A982002002F2F73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		050EF3A41A982002002F2F73 /* LemonadeStandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemonadeStandTests.swift; sourceTree = "<group>"; };
+		0551D01F1A99B2840068D2A8 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		0551D0211A99B3F10068D2A8 /* Lemonade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lemonade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				050EF3951A982002002F2F73 /* Images.xcassets */,
 				050EF3971A982002002F2F73 /* LaunchScreen.xib */,
 				050EF38C1A982002002F2F73 /* Supporting Files */,
+				0551D01F1A99B2840068D2A8 /* Customer.swift */,
+				0551D0211A99B3F10068D2A8 /* Lemonade.swift */,
 			);
 			path = LemonadeStand;
 			sourceTree = "<group>";
@@ -212,7 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0551D0201A99B2840068D2A8 /* Customer.swift in Sources */,
 				050EF3911A982002002F2F73 /* ViewController.swift in Sources */,
+				0551D0221A99B3F10068D2A8 /* Lemonade.swift in Sources */,
 				050EF38F1A982002002F2F73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +415,7 @@
 				050EF3AA1A982002002F2F73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		050EF3AB1A982002002F2F73 /* Build configuration list for PBXNativeTarget "LemonadeStandTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				050EF3AD1A982002002F2F73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
