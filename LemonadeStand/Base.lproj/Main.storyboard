@@ -188,15 +188,6 @@
                                             <rect key="frame" x="8" y="8" width="278" height="21"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At the end of the day you will either make or lose money. If you don't have enought money to buy new inventory, YOU LOSE!" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iR-gp-dur">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="27" y="37" width="346" height="52"/>
-                                        </variation>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPR-kE-ilC">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.82816247460000003" blue="0.077888488929999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -205,26 +196,35 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="159" y="97" width="83" height="38"/>
+                                            <rect key="frame" x="159" y="105" width="83" height="38"/>
                                         </variation>
                                         <connections>
                                             <action selector="startDayPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PYi-dY-4Xh"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At the end of the day you will either make or lose money. If you don't have enought money to buy new inventory, YOU LOSE!" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iR-gp-dur">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="27" y="45" width="346" height="52"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82668717280000004" green="0.87595533290000005" blue="0.84346064789999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="RbD-tR-NR7"/>
-                                        <exclude reference="0iR-gp-dur"/>
                                         <exclude reference="nPR-kE-ilC"/>
+                                        <exclude reference="0iR-gp-dur"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="RbD-tR-NR7"/>
-                                        <include reference="0iR-gp-dur"/>
                                         <include reference="nPR-kE-ilC"/>
+                                        <include reference="0iR-gp-dur"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -258,7 +258,7 @@
                                             <rect key="frame" x="38" y="84" width="143" height="20"/>
                                         </variation>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Gwr-gW-QwP">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Gwr-gW-QwP">
                                         <rect key="frame" x="-47" y="-14" width="94" height="29"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="242" y="32" width="94" height="29"/>
@@ -327,7 +327,9 @@
                             <constraint firstItem="xPF-3I-cql" firstAttribute="height" secondItem="Oa5-kV-NNB" secondAttribute="height" id="Ay6-J2-vWb"/>
                             <constraint firstItem="Oa5-kV-NNB" firstAttribute="top" secondItem="ALd-2h-e4z" secondAttribute="bottom" id="BIg-bA-TEH"/>
                             <constraint firstItem="Oa5-kV-NNB" firstAttribute="top" secondItem="ALd-2h-e4z" secondAttribute="bottom" id="CmG-8J-ssA"/>
-                            <constraint firstItem="xPF-3I-cql" firstAttribute="height" secondItem="Ser-3F-9N3" secondAttribute="height" id="GzF-9F-ph3"/>
+                            <constraint firstItem="xPF-3I-cql" firstAttribute="height" secondItem="Ser-3F-9N3" secondAttribute="height" id="GzF-9F-ph3">
+                                <variation key="widthClass=compact" constant="-8"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="Ser-3F-9N3" secondAttribute="trailing" id="YbJ-j6-sAV"/>
                             <constraint firstItem="ALd-2h-e4z" firstAttribute="top" secondItem="xPF-3I-cql" secondAttribute="bottom" id="bAB-cb-see"/>
                             <constraint firstItem="ALd-2h-e4z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dJY-GK-5Pn"/>
@@ -338,7 +340,9 @@
                             <constraint firstItem="Ser-3F-9N3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i6d-9u-TFg"/>
                             <constraint firstItem="Ser-3F-9N3" firstAttribute="top" secondItem="Oa5-kV-NNB" secondAttribute="bottom" id="oTg-hr-8EK"/>
                             <constraint firstAttribute="trailing" secondItem="xPF-3I-cql" secondAttribute="trailing" id="tUX-bY-Ubi"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ser-3F-9N3" secondAttribute="bottom" constant="8" id="tWE-Mu-0A5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ser-3F-9N3" secondAttribute="bottom" constant="8" id="tWE-Mu-0A5">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
