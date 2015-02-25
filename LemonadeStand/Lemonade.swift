@@ -7,6 +7,43 @@
 //
 
 import Foundation
-struct Lemonade {
+struct Lemonade : Printable {
+    var lemonAmt:Double = 1.0
+    var iceAmt:Double  = 1.0
+    var acidity:Double {
+        get {
+            if(iceAmt > 0 ){
+                return lemonAmt / iceAmt
+            }
+            return 1.0
+        }
+    }
+    var flavorType:LemonadeFlavorType {
+        let acidAmt =  self.acidity
+            if acidAmt > 1.0 {
+                return LemonadeFlavorType.ACIDIC
+            }else if acidAmt == 1.0 {
+                return LemonadeFlavorType.BALANCED
+            }else{
+                return LemonadeFlavorType.DILUTED
+            }
+    }
+    var description: String {
+        return "Lemonade: Lemons::Ice::Acidity \(lemonAmt)::\(iceAmt)::\(acidity)"
+    }
+
     
+    init(){}
+    init(lemons:Double, ice:Double){
+        self.lemonAmt = lemons
+        self.iceAmt = ice
+    }
+    
+}
+
+
+enum LemonadeFlavorType: Double{
+    case ACIDIC = 1.1
+    case BALANCED = 1.0
+    case DILUTED = 0.9
 }

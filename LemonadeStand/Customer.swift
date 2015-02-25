@@ -7,6 +7,22 @@
 //
 
 import Foundation
-class Customer {
+class Customer : Printable {
+    var id:Int = 0
+    var tastePreference:Double = 0
+    var description: String {
+        return "Customoer: ID\(id)::TasePref\(tastePreference)"
+    }
+
+    
+    init(id: Int, tastePref:Double){
+        self.id = id
+        self.tastePreference = tastePref
+    }
+    
+    func tasteLemonade(drink: Lemonade) -> Bool{
+    
+        return false
+    }
     
 }

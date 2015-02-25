@@ -158,6 +158,10 @@ class ViewController: UIViewController {
     
     
     
+    func mixLemonade(lemons:Int, ice:Int) -> Lemonade {
+        return Lemonade(lemons: Double(lemons), ice: Double(ice))
+    }
+    
     //Sell Action
     @IBAction func startDayPressed(sender: UIButton) {
     }
@@ -169,7 +173,7 @@ class ViewController: UIViewController {
         //Update Inventory
         self.lemonInventoryLabel.text = "\(lemonSupply) Lemons"
         self.iceInventoryLabel.text = "\(iceSupply) Ice Cubes"
-        self.availableCashLabel.text = "$ \(cashSupply)"
+        self.availableCashLabel.text = "$\(cashSupply)"
         self.availableCashLabel.sizeToFit()
         
         //Update Supply
