@@ -167,9 +167,11 @@
 				TargetAttributes = {
 					050EF3881A982002002F2F73 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = JN593NL39J;
 					};
 					050EF39D1A982002002F2F73 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = JN593NL39J;
 						TestTargetID = 050EF3881A982002002F2F73;
 					};
 				};
@@ -366,6 +368,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -377,6 +381,7 @@
 				INFOPLIST_FILE = LemonadeStandTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LemonadeStand.app/LemonadeStand";
 			};
 			name = Debug;
@@ -385,6 +390,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -392,6 +399,7 @@
 				INFOPLIST_FILE = LemonadeStandTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LemonadeStand.app/LemonadeStand";
 			};
 			name = Release;
