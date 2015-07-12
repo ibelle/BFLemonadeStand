@@ -70,77 +70,105 @@ class ViewController: UIViewController {
     
     //Supply Actions
     @IBAction func lemonSupplyValueChanged(sender: UIStepper) {
-        var inputLemonValue = Int(sender.value)
+        let inputLemonValue = Int(sender.value)
+        var doUpdateLemonSupply = false
         
-        if inputLemonValue > self.additionalLemonSupply {
-            purchaseLemon()
+        
+        if inputLemonValue > self.additionalLemonSupply && self.cashSupply > 0 {
+           doUpdateLemonSupply = purchaseLemon()
         }else if inputLemonValue < self.additionalLemonSupply{
-            unPurchaseLemon()
+            doUpdateLemonSupply = unPurchaseLemon()
+        }
+        if(doUpdateLemonSupply) {
+            self.additionalLemonSupply = inputLemonValue
+        }else {
+            sender.value = Double(additionalLemonSupply)
         }
         
-        self.additionalLemonSupply = inputLemonValue
         updateMainView()
     }
 
     @IBAction func iceSupplyValueChanged(sender: UIStepper) {
+        let inputIceCubeValue = Int(sender.value)
+        var doUpdateIceSupply = false
         
-        var inputIceCubeValue = Int(sender.value)
-        
-        if inputIceCubeValue > self.additionalIceSupply {
-            purchaseIceCube()
+        if inputIceCubeValue > self.additionalIceSupply && self.cashSupply > 0{
+            doUpdateIceSupply = purchaseIceCube()
         }else if inputIceCubeValue < self.additionalIceSupply{
-            unPurchaseIceCube()
+            doUpdateIceSupply = unPurchaseIceCube()
         }
 
-        self.additionalIceSupply = Int(sender.value)
+        
+        if(doUpdateIceSupply){
+            self.additionalIceSupply = Int(sender.value)
+        }else{
+            sender.value = Double(additionalIceSupply)
+        }
+        
         updateMainView()
     }
     
-    func purchaseLemon() {
+    func purchaseLemon() -> Bool {
             if self.LEMON_PRICE  <= cashSupply {
                 //Update Lemons
                 self.lemonSupply += 1
                 
                 //update cash
                 self.cashSupply -= self.LEMON_PRICE
+                return true
             }else{
                 //Alert HERE OR SET ERROR MESSAGE
                 println("CAN NOT AFFORD ADDITIONAL LEMON")
             }
+        return false
     }
     
-    func unPurchaseLemon() {
+    func unPurchaseLemon() ->Bool {
             if(self.lemonSupply > 1){
                 //Update Lemons
                 self.lemonSupply -= 1
                 
                 //update cash
                 self.cashSupply += self.LEMON_PRICE
+                
+                return true
             }
+        //Alert HERE OR SET ERROR MESSAGE
+        println("NO MORE LEMONS TO UNPURCHASE")
+        return false
     }
     
     
-    func purchaseIceCube() {
+    func purchaseIceCube() -> Bool {
         if self.ICE_PRICE  <= cashSupply {
             //Update Lemons
             self.iceSupply += 1
             
             //Update cash
             self.cashSupply -= self.ICE_PRICE
+            
+            return true
         }else{
             //Alert HERE OR SET ERROR MESSAGE
             println("CAN NOT AFFORD ADDITIONAL ICE CUBE")
         }
+        return false
     }
     
-    func unPurchaseIceCube() {
+    func unPurchaseIceCube() -> Bool{
         if(self.iceSupply > 1){
             //Update IceCubes
             self.iceSupply -= 1
             
             //Update cash
             self.cashSupply += self.ICE_PRICE
+            
+            return true
         }
+        //Alert HERE OR SET ERROR MESSAGE
+        println("NO MORE ICE TO UNPURCHASE")
+        
+        return false
     }
  
     //Mix
@@ -164,6 +192,13 @@ class ViewController: UIViewController {
     
     //Sell Action
     @IBAction func startDayPressed(sender: UIButton) {
+        //1. Create Lemonade, print LemonadeFlavorType
+        
+        //2. Generate a random nubmer of customers between 01 and 10
+            //2a. For each customer create a random taste preference(between 0 and 1)
+        //3. Call CompareTastePrefrences Function (etiher defined here OR in Customer)
+        
+        
     }
     
     
