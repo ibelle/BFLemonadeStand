@@ -9,10 +9,24 @@
 import Foundation
 class Customer : Printable {
     var id:Int = 0
-    var tastePreference:Double = 0
+    var tastePreference:Double = 0.0
     var description: String {
         return "Customoer: ID\(id)::TasePref\(tastePreference)"
     }
+    
+    var lemonadeTastePrefrence:LemonadeFlavorType {
+        switch self.tastePreference {
+        case 0.0...0.4:
+            return LemonadeFlavorType.ACIDIC
+        case 0.4...0.6:
+            return LemonadeFlavorType.BALANCED
+        case 0.6...1.0:
+            return LemonadeFlavorType.DILUTED
+        default:
+            return LemonadeFlavorType.BALANCED
+        }
+    }
+
 
     
     init(id: Int, tastePref:Double){
@@ -20,9 +34,7 @@ class Customer : Printable {
         self.tastePreference = tastePref
     }
     
-    func tasteLemonade(drink: Lemonade) -> Bool{
     
-        return false
-    }
+
     
 }
