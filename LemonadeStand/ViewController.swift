@@ -85,6 +85,8 @@ class ViewController: UIViewController {
             sender.value = Double(additionalLemonSupply)
         }
         
+        self.lemonMixStepper.maximumValue = Double(lemonSupply)
+        
         updateMainView()
     }
 
@@ -104,6 +106,7 @@ class ViewController: UIViewController {
         }else{
             sender.value = Double(additionalIceSupply)
         }
+        self.iceMixStepper.maximumValue = Double(iceSupply)
         
         updateMainView()
     }
@@ -173,14 +176,40 @@ class ViewController: UIViewController {
  
     //Mix
     @IBAction func lemonMixValueChanged(sender: UIStepper) {
-        self.lemonsToMix = Int(sender.value)
+        let lemonMixInputValue = Int(sender.value)
+        var updateLemonMix = false
         
+        if lemonMixInputValue > self.lemonsToMix  {
+              updateLemonMix=addLemonsToMix()
+        } else if lemonMixInputValue  < self.lemonsToMix  {
+            updateLemonMix=removeLemonsFromMix()
+        
+        }
+        if  updateLemonMix {
+            self.lemonsToMix = Int(sender.value)
+        }else{
+            sender.value = Double(self.lemonsToMix)
+        }
+     
         updateMainView()
+    }
+    
+    func addLemonsToMix() -> Bool{
+        
+         self.lemonSupply -= 1
+        
+        return true
+        
+    }
+    func removeLemonsFromMix() -> Bool{
+        self.lemonSupply += 1
+        
+        return true
     }
  
     @IBAction func iceMixValueChanged(sender: UIStepper) {
         self.iceToMix = Int(sender.value)
-        //TODO:Update INVENTORY
+       
         updateMainView()
     }
     
@@ -219,6 +248,10 @@ class ViewController: UIViewController {
         //Update Mix
         self.lemonMixLabel.text = "\(lemonsToMix)"
         self.iceMixLabel.text = "\(iceToMix)"
+        
+        self.lemonMixStepper.maximumValue = Double(lemonSupply)
+        self.iceMixStepper.maximumValue = Double(iceSupply)
+        
     }
     
     func showAlertWithText(
