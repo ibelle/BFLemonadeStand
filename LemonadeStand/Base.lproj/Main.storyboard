@@ -300,42 +300,100 @@
                                             <rect key="frame" x="21" y="82" width="158" height="23"/>
                                         </variation>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Gwr-gW-QwP">
-                                        <rect key="frame" x="-47" y="-14" width="94" height="29"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="258" y="34" width="94" height="29"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="lemonSupplyValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mHL-kE-Ncf"/>
-                                        </connections>
-                                    </stepper>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-yC-TUI">
-                                        <rect key="frame" x="-47" y="-14" width="94" height="29"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="258" y="80" width="94" height="29"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="iceSupplyValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="P5t-LG-OEv"/>
-                                        </connections>
-                                    </stepper>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2me-FD-miI">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="217" y="35" width="21" height="21"/>
-                                        </variation>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdF-Ys-p81">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="217" y="81" width="21" height="21"/>
+                                            <rect key="frame" x="240" y="79" width="21" height="21"/>
                                         </variation>
                                     </label>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhe-yl-GBF">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.3579059939" green="0.9882100184" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="45"/>
+                                        <state key="normal" title="-">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="196" y="32" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="lemonSupplyRemoved:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2mh-k7-kse"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6g-X6-oS3">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.3579059939" green="0.9882100184" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="45"/>
+                                        <state key="normal" title="-">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="196" y="75" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="iceSupplyRemoved:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3dp-zP-220"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2me-FD-miI">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="240" y="36" width="21" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rC-QR-avf">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.3579059939" green="0.9882100184" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="45"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="276" y="32" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="lemonSupplyAdded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9mp-fJ-dRF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzC-jx-OYt">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.3579059939" green="0.9882100184" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="45"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="276" y="75" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="iceSupplyAdded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Exh-RV-p7r"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82668717280000004" green="0.87595533290000005" blue="0.84346064789999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
@@ -343,10 +401,12 @@
                                         <exclude reference="co1-Et-7wa"/>
                                         <exclude reference="FGi-GL-25y"/>
                                         <exclude reference="eIG-1z-WOB"/>
-                                        <exclude reference="Gwr-gW-QwP"/>
-                                        <exclude reference="bhb-yC-TUI"/>
-                                        <exclude reference="2me-FD-miI"/>
                                         <exclude reference="cdF-Ys-p81"/>
+                                        <exclude reference="Yhe-yl-GBF"/>
+                                        <exclude reference="c6g-X6-oS3"/>
+                                        <exclude reference="2me-FD-miI"/>
+                                        <exclude reference="0rC-QR-avf"/>
+                                        <exclude reference="MzC-jx-OYt"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -354,10 +414,12 @@
                                         <include reference="co1-Et-7wa"/>
                                         <include reference="FGi-GL-25y"/>
                                         <include reference="eIG-1z-WOB"/>
-                                        <include reference="Gwr-gW-QwP"/>
-                                        <include reference="bhb-yC-TUI"/>
-                                        <include reference="2me-FD-miI"/>
                                         <include reference="cdF-Ys-p81"/>
+                                        <include reference="Yhe-yl-GBF"/>
+                                        <include reference="c6g-X6-oS3"/>
+                                        <include reference="2me-FD-miI"/>
+                                        <include reference="0rC-QR-avf"/>
+                                        <include reference="MzC-jx-OYt"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -430,19 +492,21 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addIceSuppluButton" destination="MzC-jx-OYt" id="nXM-gc-sBO"/>
+                        <outlet property="addLemonSupplyButton" destination="0rC-QR-avf" id="q1z-Fu-xeX"/>
                         <outlet property="availableCashLabel" destination="2Jl-lM-YIK" id="cdf-Wy-y1Y"/>
                         <outlet property="iceInventoryLabel" destination="TnC-4r-qnF" id="4E1-8S-SPC"/>
                         <outlet property="iceMixLabel" destination="uHk-Rw-tOn" id="UVc-QK-Hls"/>
                         <outlet property="iceMixStepper" destination="rDJ-lW-CZq" id="XgN-cU-fKB"/>
                         <outlet property="iceSupplyLabel" destination="cdF-Ys-p81" id="nM5-CD-1xV"/>
-                        <outlet property="iceSupplyStepper" destination="bhb-yC-TUI" id="blV-OE-NaJ"/>
                         <outlet property="inventoryContinerView" destination="xPF-3I-cql" id="jFd-VB-6kB"/>
                         <outlet property="lemonInventoryLabel" destination="p3Q-bi-lrz" id="LBR-F1-Uwr"/>
                         <outlet property="lemonMixLabel" destination="LB7-ZO-pQe" id="gTl-vj-jQC"/>
                         <outlet property="lemonMixStepper" destination="tia-zY-w3I" id="cQ9-NQ-Xin"/>
                         <outlet property="lemonSupplyLabel" destination="2me-FD-miI" id="Zt6-of-7EX"/>
-                        <outlet property="lemonSupplyStepper" destination="Gwr-gW-QwP" id="4c5-aW-xVe"/>
                         <outlet property="mixContainerView" destination="Oa5-kV-NNB" id="DYC-bB-Xdd"/>
+                        <outlet property="removeIceSupplyButton" destination="c6g-X6-oS3" id="ChT-1r-pQM"/>
+                        <outlet property="removeLemonSupplyButton" destination="Yhe-yl-GBF" id="Gvb-xX-kr5"/>
                         <outlet property="salesContainerView" destination="Ser-3F-9N3" id="UFO-Xp-lmE"/>
                         <outlet property="suppliesContainerView" destination="ALd-2h-e4z" id="Mhh-qP-IVr"/>
                     </connections>

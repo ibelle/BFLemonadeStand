@@ -12,11 +12,14 @@ class ViewController: UIViewController {
     //Constants
     let LEMON_PRICE:Int = 2
     let ICE_PRICE:Int = 1
+    let LEMON_SUPPLY_DEFAULT:Int =  1
+    let ICE_SUPPLY_DEFAULT:Int = 1
+    let CASH_DEFAULT:Int = 10
     
     //Supply Vars
-    var lemonSupply:Int = 1
-    var iceSupply:Int = 1
-    var cashSupply:Int = 10
+    var lemonSupply:Int = 0
+    var iceSupply:Int = 0
+    var cashSupply:Int = 0
     
 
     
@@ -33,11 +36,15 @@ class ViewController: UIViewController {
     
     
     //Supply Outlets
-    var additionalLemonSupply:Int = 0
-    var additionalIceSupply:Int = 0
-    @IBOutlet weak var lemonSupplyStepper: UIStepper!
-    @IBOutlet weak var iceSupplyStepper: UIStepper!
+    //var additionalLemonSupply:Int = 0
+    //var additionalIceSupply:Int = 0
+    
+    @IBOutlet weak var addLemonSupplyButton: UIButton!
+    @IBOutlet weak var removeLemonSupplyButton: UIButton!
     @IBOutlet weak var lemonSupplyLabel: UILabel!
+    
+    @IBOutlet weak var addIceSuppluButton: UIButton!
+    @IBOutlet weak var removeIceSupplyButton: UIButton!
     @IBOutlet weak var iceSupplyLabel: UILabel!
    
     
@@ -56,6 +63,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.lemonSupply = self.LEMON_SUPPLY_DEFAULT
+        self.iceSupply = self.ICE_SUPPLY_DEFAULT
+        self.cashSupply = self.CASH_DEFAULT
     }
     
     override func viewWillLayoutSubviews() {
@@ -69,111 +79,75 @@ class ViewController: UIViewController {
     }
     
     //Supply Actions
-    @IBAction func lemonSupplyValueChanged(sender: UIStepper) {
-        let inputLemonValue = Int(sender.value)
-        var doUpdateLemonSupply = false
-        
-        
-        if inputLemonValue > self.additionalLemonSupply && self.cashSupply > 0 {
-           doUpdateLemonSupply = purchaseLemon()
-        }else if inputLemonValue < self.additionalLemonSupply{
-            doUpdateLemonSupply = unPurchaseLemon()
+    @IBAction func lemonSupplyRemoved(sender: UIButton) {
+        if(self.lemonSupply > self.LEMON_SUPPLY_DEFAULT){
+            //Update Lemons
+            self.lemonSupply -= 1
+            
+            //update cash
+            self.cashSupply += self.LEMON_PRICE
         }
-        if(doUpdateLemonSupply) {
-            self.additionalLemonSupply = inputLemonValue
-        }else {
-            sender.value = Double(additionalLemonSupply)
-        }
+        //Alert HERE OR SET ERROR MESSAGE
+        println("NO MORE LEMONS TO UNPURCHASE")
         
         self.lemonMixStepper.maximumValue = Double(lemonSupply)
-        
-        updateMainView()
-    }
-
-    @IBAction func iceSupplyValueChanged(sender: UIStepper) {
-        let inputIceCubeValue = Int(sender.value)
-        var doUpdateIceSupply = false
-        
-        if inputIceCubeValue > self.additionalIceSupply && self.cashSupply > 0{
-            doUpdateIceSupply = purchaseIceCube()
-        }else if inputIceCubeValue < self.additionalIceSupply{
-            doUpdateIceSupply = unPurchaseIceCube()
-        }
-
-        
-        if(doUpdateIceSupply){
-            self.additionalIceSupply = Int(sender.value)
-        }else{
-            sender.value = Double(additionalIceSupply)
-        }
-        self.iceMixStepper.maximumValue = Double(iceSupply)
-        
         updateMainView()
     }
     
-    func purchaseLemon() -> Bool {
-            if self.LEMON_PRICE  <= cashSupply {
+    @IBAction func lemonSupplyAdded(sender: UIButton) {
+        if (self.cashSupply > 0  && self.LEMON_PRICE  <= cashSupply){
+             println("YO IM BUYING LEMONS DUDE!")
                 //Update Lemons
                 self.lemonSupply += 1
                 
                 //update cash
                 self.cashSupply -= self.LEMON_PRICE
-                return true
+            
+            println("Cash \(cashSupply), Lemons \(lemonSupply)")
+
             }else{
                 //Alert HERE OR SET ERROR MESSAGE
                 println("CAN NOT AFFORD ADDITIONAL LEMON")
             }
-        return false
+        
+        self.lemonMixStepper.maximumValue = Double(lemonSupply)
+        updateMainView()
     }
     
-    func unPurchaseLemon() ->Bool {
-            if(self.lemonSupply > 1){
+    
+    @IBAction func iceSupplyAdded(sender: UIButton) {
+  
+        if (self.cashSupply > 0 && self.ICE_PRICE  <= cashSupply) {
                 //Update Lemons
-                self.lemonSupply -= 1
+                self.iceSupply += 1
                 
-                //update cash
-                self.cashSupply += self.LEMON_PRICE
-                
-                return true
+                //Update cash
+                self.cashSupply -= self.ICE_PRICE
+            }else{
+                //Alert HERE OR SET ERROR MESSAGE
+                println("CAN NOT AFFORD ADDITIONAL ICE CUBE")
             }
-        //Alert HERE OR SET ERROR MESSAGE
-        println("NO MORE LEMONS TO UNPURCHASE")
-        return false
+        
+       self.iceMixStepper.maximumValue = Double(iceSupply)
+       updateMainView()
     }
     
-    
-    func purchaseIceCube() -> Bool {
-        if self.ICE_PRICE  <= cashSupply {
-            //Update Lemons
-            self.iceSupply += 1
-            
-            //Update cash
-            self.cashSupply -= self.ICE_PRICE
-            
-            return true
-        }else{
-            //Alert HERE OR SET ERROR MESSAGE
-            println("CAN NOT AFFORD ADDITIONAL ICE CUBE")
-        }
-        return false
-    }
-    
-    func unPurchaseIceCube() -> Bool{
-        if(self.iceSupply > 1){
+    @IBAction func iceSupplyRemoved(sender: UIButton) {
+       
+        if(self.iceSupply > self.ICE_SUPPLY_DEFAULT){
             //Update IceCubes
             self.iceSupply -= 1
             
             //Update cash
             self.cashSupply += self.ICE_PRICE
-            
-            return true
         }
+        
         //Alert HERE OR SET ERROR MESSAGE
         println("NO MORE ICE TO UNPURCHASE")
-        
-        return false
+        self.iceMixStepper.maximumValue = Double(iceSupply)
+        updateMainView()
     }
- 
+    
     //Mix
     @IBAction func lemonMixValueChanged(sender: UIStepper) {
         let lemonMixInputValue = Int(sender.value)
@@ -209,11 +183,8 @@ class ViewController: UIViewController {
  
     @IBAction func iceMixValueChanged(sender: UIStepper) {
         self.iceToMix = Int(sender.value)
-       
-        updateMainView()
+       updateMainView()
     }
-    
-    
     
     func mixLemonade(lemons:Int, ice:Int) -> Lemonade {
         return Lemonade(lemons: Double(lemons), ice: Double(ice))
@@ -241,8 +212,8 @@ class ViewController: UIViewController {
         self.availableCashLabel.sizeToFit()
         
         //Update Supply
-        self.lemonSupplyLabel.text = "\(additionalLemonSupply)"
-        self.iceSupplyLabel.text = "\(additionalIceSupply)"
+        self.lemonSupplyLabel.text = "\(lemonSupply - self.LEMON_SUPPLY_DEFAULT)"
+        self.iceSupplyLabel.text = "\(iceSupply - self.ICE_SUPPLY_DEFAULT)"
         
         
         //Update Mix
@@ -264,8 +235,5 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: handler))
             self.presentViewController(alert, animated: true, completion: completion)
     }
-
-
-
 }
 
