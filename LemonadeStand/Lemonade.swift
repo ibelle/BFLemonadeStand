@@ -12,13 +12,13 @@ struct Lemonade : Printable {
     var iceAmt:Double  = 1.0
     var acidity:Double {
         get {
-            if(iceAmt > 0 ){
+            if(iceAmt > 0.0 ){
                 return lemonAmt / iceAmt
             }
             return 1.0
         }
     }
-    var flavorType:LemonadeFlavorType {
+    var flavor:LemonadeFlavorType {
         let acidAmt =  self.acidity
             if acidAmt > 1.0 {
                 return LemonadeFlavorType.ACIDIC
@@ -46,4 +46,14 @@ enum LemonadeFlavorType: Double{
     case ACIDIC = 1.1
     case BALANCED = 1.0
     case DILUTED = 0.9
+    func description () -> String {
+        switch self {
+        case ACIDIC:
+            return "ACIDIC"
+        case BALANCED:
+            return "BALANCED"
+        case DILUTED:
+            return "DILUTED"        }
+    }
+    
 }

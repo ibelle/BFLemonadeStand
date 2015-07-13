@@ -11,10 +11,10 @@ class Customer : Printable {
     var id:Int = 0
     var tastePreference:Double = 0.0
     var description: String {
-        return "Customoer: ID\(id)::TasePref\(tastePreference)"
+        return "Customoer: ID=\(id)::TastePref=\(tastePreference)::LemonadeTastePref= \(lemonadeTastePreference.description())"
     }
     
-    var lemonadeTastePrefrence:LemonadeFlavorType {
+    var lemonadeTastePreference:LemonadeFlavorType {
         switch self.tastePreference {
         case 0.0...0.4:
             return LemonadeFlavorType.ACIDIC
@@ -27,7 +27,7 @@ class Customer : Printable {
         }
     }
 
-
+    
     
     init(id: Int, tastePref:Double){
         self.id = id
@@ -35,6 +35,12 @@ class Customer : Printable {
     }
     
     
-
+    func tasteLemonade(sample:Lemonade) -> Bool{
+        if sample.flavor == self.lemonadeTastePreference {
+            return true
+        }
+        return false
+    }
+    
     
 }
