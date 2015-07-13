@@ -21,7 +21,25 @@ class ViewController: UIViewController {
     var iceSupply:Int = 0
     var cashSupply:Int = 0
     
-
+    
+    //Calculated Properties
+    var purchasedLemonSupply:Int {
+        let additionalSupplyValue = lemonSupply - self.LEMON_SUPPLY_DEFAULT
+        if additionalSupplyValue >= 0 {
+            return additionalSupplyValue
+        }else {
+            return 0
+        }
+    }
+    
+    var purchasedIceSupply:Int {
+        let additionalSupplyValue = iceSupply - self.ICE_SUPPLY_DEFAULT
+        if additionalSupplyValue >= 0 {
+            return additionalSupplyValue
+        }else {
+            return 0
+        }
+    }
     
     //Containers
     @IBOutlet weak var suppliesContainerView: UIView!
@@ -36,9 +54,6 @@ class ViewController: UIViewController {
     
     
     //Supply Outlets
-    //var additionalLemonSupply:Int = 0
-    //var additionalIceSupply:Int = 0
-    
     @IBOutlet weak var addLemonSupplyButton: UIButton!
     @IBOutlet weak var removeLemonSupplyButton: UIButton!
     @IBOutlet weak var lemonSupplyLabel: UILabel!
@@ -53,8 +68,13 @@ class ViewController: UIViewController {
     var iceToMix:Int = 0
     @IBOutlet weak var lemonMixLabel: UILabel!
     @IBOutlet weak var iceMixLabel: UILabel!
-    @IBOutlet weak var lemonMixStepper: UIStepper!
-    @IBOutlet weak var iceMixStepper: UIStepper!
+    @IBOutlet weak var addLemonToMixButton: UIButton!
+    @IBOutlet weak var removeLemonFromMixButton: UIButton!
+    
+    @IBOutlet weak var addIceToMixButton: UIButton!
+    @IBOutlet weak var removeIceFromMixButton: UIButton!
+    
+    
     
     //Sales Outlets
     
@@ -89,8 +109,6 @@ class ViewController: UIViewController {
         }
         //Alert HERE OR SET ERROR MESSAGE
         println("NO MORE LEMONS TO UNPURCHASE")
-        
-        self.lemonMixStepper.maximumValue = Double(lemonSupply)
         updateMainView()
     }
     
@@ -109,8 +127,6 @@ class ViewController: UIViewController {
                 //Alert HERE OR SET ERROR MESSAGE
                 println("CAN NOT AFFORD ADDITIONAL LEMON")
             }
-        
-        self.lemonMixStepper.maximumValue = Double(lemonSupply)
         updateMainView()
     }
     
@@ -128,8 +144,7 @@ class ViewController: UIViewController {
                 println("CAN NOT AFFORD ADDITIONAL ICE CUBE")
             }
         
-       self.iceMixStepper.maximumValue = Double(iceSupply)
-       updateMainView()
+        updateMainView()
     }
     
     @IBAction func iceSupplyRemoved(sender: UIButton) {
@@ -144,47 +159,42 @@ class ViewController: UIViewController {
         
         //Alert HERE OR SET ERROR MESSAGE
         println("NO MORE ICE TO UNPURCHASE")
-        self.iceMixStepper.maximumValue = Double(iceSupply)
         updateMainView()
     }
     
     //Mix
-    @IBAction func lemonMixValueChanged(sender: UIStepper) {
-        let lemonMixInputValue = Int(sender.value)
-        var updateLemonMix = false
-        
-        if lemonMixInputValue > self.lemonsToMix  {
-              updateLemonMix=addLemonsToMix()
-        } else if lemonMixInputValue  < self.lemonsToMix  {
-            updateLemonMix=removeLemonsFromMix()
-        
+    @IBAction func lemonAddedToMix(sender: UIButton) {
+        if self.lemonSupply > 0 {
+            self.lemonsToMix++
+            self.lemonSupply--
         }
-        if  updateLemonMix {
-            self.lemonsToMix = Int(sender.value)
-        }else{
-            sender.value = Double(self.lemonsToMix)
-        }
-     
         updateMainView()
     }
     
-    func addLemonsToMix() -> Bool{
-        
-         self.lemonSupply -= 1
-        
-        return true
-        
+    @IBAction func lemonRemovedFromMix(sender: UIButton) {
+        if self.lemonsToMix > 0 {
+            self.lemonsToMix--
+            self.lemonSupply++
+        }
+        updateMainView()
     }
-    func removeLemonsFromMix() -> Bool{
-        self.lemonSupply += 1
-        
-        return true
+    
+    @IBAction func addIceToMix(sender: UIButton) {
+        if self.iceSupply > 0 {
+            self.iceToMix++
+            self.iceSupply--
+        }
+        updateMainView()
     }
- 
-    @IBAction func iceMixValueChanged(sender: UIStepper) {
-        self.iceToMix = Int(sender.value)
-       updateMainView()
+    
+    @IBAction func removeIceFromMix(sender: UIButton) {
+        if self.iceToMix > 0 {
+            self.iceToMix--
+            self.iceSupply++
+        }
+        updateMainView()
     }
+    
     
     func mixLemonade(lemons:Int, ice:Int) -> Lemonade {
         return Lemonade(lemons: Double(lemons), ice: Double(ice))
@@ -212,17 +222,13 @@ class ViewController: UIViewController {
         self.availableCashLabel.sizeToFit()
         
         //Update Supply
-        self.lemonSupplyLabel.text = "\(lemonSupply - self.LEMON_SUPPLY_DEFAULT)"
-        self.iceSupplyLabel.text = "\(iceSupply - self.ICE_SUPPLY_DEFAULT)"
-        
+        self.lemonSupplyLabel.text = "\(self.purchasedLemonSupply)"
+        self.iceSupplyLabel.text = "\(self.purchasedIceSupply)"
         
         //Update Mix
         self.lemonMixLabel.text = "\(lemonsToMix)"
         self.iceMixLabel.text = "\(iceToMix)"
-        
-        self.lemonMixStepper.maximumValue = Double(lemonSupply)
-        self.iceMixStepper.maximumValue = Double(iceSupply)
-        
+      
     }
     
     func showAlertWithText(
