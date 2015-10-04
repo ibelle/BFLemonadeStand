@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Customer : Printable {
+class Customer : CustomStringConvertible {
     var id:Int = 0
     var tastePreference:Double = 0.0
     var description: String {

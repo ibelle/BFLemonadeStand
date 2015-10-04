@@ -24,10 +24,13 @@ class ViewController: UIViewController {
     var cashSupply:Int = 0
     
     //Daily Vars
-    //var dailyCustomerCollection:[Customer] = []
-    
+    var gameStarted:Bool = false
+
     //Calculated Properties
     var purchasedLemonSupply:Int {
+        if( self.gameStarted){
+            return lemonSupply
+        }
         let additionalSupplyValue = lemonSupply - self.LEMON_SUPPLY_DEFAULT
         if additionalSupplyValue >= 0 {
             return additionalSupplyValue
@@ -37,6 +40,10 @@ class ViewController: UIViewController {
     }
     
     var purchasedIceSupply:Int {
+        if( self.gameStarted){
+            return iceSupply
+        }
+
         let additionalSupplyValue = iceSupply - self.ICE_SUPPLY_DEFAULT
         if additionalSupplyValue >= 0 {
             return additionalSupplyValue
@@ -57,14 +64,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var iceInventoryLabel: UILabel!
     
     
-    //Supply Outlets
+    //Purchase Outlets
     @IBOutlet weak var addLemonSupplyButton: UIButton!
     @IBOutlet weak var removeLemonSupplyButton: UIButton!
-    @IBOutlet weak var lemonSupplyLabel: UILabel!
+    @IBOutlet weak var lemonPurchaseLabel: UILabel!
     
     @IBOutlet weak var addIceSuppluButton: UIButton!
     @IBOutlet weak var removeIceSupplyButton: UIButton!
-    @IBOutlet weak var iceSupplyLabel: UILabel!
+    @IBOutlet weak var icePurchaseLabel: UILabel!
    
     
     //Mix Outlets
@@ -87,9 +94,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.lemonSupply = self.LEMON_SUPPLY_DEFAULT
-        self.iceSupply = self.ICE_SUPPLY_DEFAULT
-        self.cashSupply = self.CASH_DEFAULT
+      self.initGame()
     }
     
     override func viewWillLayoutSubviews() {
@@ -104,7 +109,7 @@ class ViewController: UIViewController {
     
     //Supply Actions
     @IBAction func lemonSupplyRemoved(sender: UIButton) {
-        if(self.lemonSupply > self.LEMON_SUPPLY_DEFAULT){
+        if(self.lemonSupply > 0){
             //Update Lemons
             self.lemonSupply -= 1
             
@@ -112,24 +117,23 @@ class ViewController: UIViewController {
             self.cashSupply += self.LEMON_PRICE
         }
         //Alert HERE OR SET ERROR MESSAGE
-        println("NO MORE LEMONS TO UNPURCHASE")
+        print("NO MORE LEMONS TO UNPURCHASE")
         updateMainView()
     }
     
     @IBAction func lemonSupplyAdded(sender: UIButton) {
         if (self.cashSupply > 0  && self.LEMON_PRICE  <= cashSupply){
-             println("YO IM BUYING LEMONS DUDE!")
                 //Update Lemons
                 self.lemonSupply += 1
                 
                 //update cash
                 self.cashSupply -= self.LEMON_PRICE
             
-            println("Cash \(cashSupply), Lemons \(lemonSupply)")
+            print("Cash \(cashSupply), Lemons \(lemonSupply)")
 
             }else{
                 //Alert HERE OR SET ERROR MESSAGE
-                println("CAN NOT AFFORD ADDITIONAL LEMON")
+                print("CAN NOT AFFORD ADDITIONAL LEMON")
             }
         updateMainView()
     }
@@ -145,15 +149,14 @@ class ViewController: UIViewController {
                 self.cashSupply -= self.ICE_PRICE
             }else{
                 //Alert HERE OR SET ERROR MESSAGE
-                println("CAN NOT AFFORD ADDITIONAL ICE CUBE")
+                print("CAN NOT AFFORD ADDITIONAL ICE CUBE")
             }
         
         updateMainView()
     }
     
     @IBAction func iceSupplyRemoved(sender: UIButton) {
-       
-        if(self.iceSupply > self.ICE_SUPPLY_DEFAULT){
+        if(self.iceSupply > 0){
             //Update IceCubes
             self.iceSupply -= 1
             
@@ -162,7 +165,7 @@ class ViewController: UIViewController {
         }
         
         //Alert HERE OR SET ERROR MESSAGE
-        println("NO MORE ICE TO UNPURCHASE")
+        print("NO MORE ICE TO UNPURCHASE")
         updateMainView()
     }
     
@@ -211,7 +214,7 @@ class ViewController: UIViewController {
     }
     
     func generateCustomersForDay() -> [Customer] {
-        var numCustomers = Int(arc4random_uniform(UInt32(MAX_CUSTOMERS))) + 1
+        let numCustomers = Int(arc4random_uniform(UInt32(MAX_CUSTOMERS))) + 1
         var customerCollection=[Customer]()
         for var i=0; i<numCustomers; i++ {
             customerCollection.append(Customer(id: i,tastePref: self.createTastePref()))
@@ -223,35 +226,65 @@ class ViewController: UIViewController {
     //Sell Action
     @IBAction func startDayPressed(sender: UIButton) {
         var totalSales:Int=0
-        
-        println("#######STARTING DAY########")
+        if(lemonsToMix == 0 && iceToMix == 0){
+            print("NOTHING TO MIX FOR LEMONADE. ADD MORE ITEMS TO MIX OR PURCHASE ADDITIONAL SUPPLIES")
+            self.showOkAlertWithText("Nothing to Mix",message:"Nothing To Mix For Lemonade. Add More Items To Mix Or Purchase Additional Supplies")
+            return
+        }
+        print("#######STARTING DAY########")
         //1. Create Lemonade, print LemonadeFlavorType
         let dailyLemonade:Lemonade = self.mixLemonadeForDay(lemonsToMix, ice: iceToMix)
-        println("1) Lemonade Mixed for the Day:\(dailyLemonade)")
+        print("1) Lemonade Mixed for the Day:\(dailyLemonade)")
         
         //2. Generate a random nubmer of customers between 01 and 10
         //2a. For each customer create a random taste preference(between 0 and 1)
         let dailyCustomers:[Customer] = self.generateCustomersForDay()
-        println("2) \(dailyCustomers.count) Customers created for the Day:\(dailyCustomers)")
+        print("2) \(dailyCustomers.count) Customers created for the Day:\(dailyCustomers)")
         
         //3. Call Customer.tasteLemonade() Function for each customer
-        println("3) Tasing Lemonade ")
+        print("3) Tasing Lemonade ")
         for (customer) in dailyCustomers {
             if(customer.tasteLemonade(dailyLemonade)){
                 totalSales+=self.PAYOUT
-                println("SALE!! Customer \(customer.id) bought a glass of lemonade. Total Sales $\(totalSales)")
+                print("SALE!! Customer \(customer.id) bought a glass of lemonade. Total Sales $\(totalSales)")
             }else{
-                println("NO SALE!!! Customer \(customer.id) did not buy a glass of lemonade.")
+                print("NO SALE!!! Customer \(customer.id) did not buy a glass of lemonade.")
             }
         }
-        var numGlassesSold=totalSales/self.PAYOUT
-        println("4)RESULTS: Sold \(numGlassesSold) glasses of lemonade. \(dailyCustomers.count - numGlassesSold) No Sales.")
-        //self.cashSupply += totalSales
-        println("#######DAY OVER########")
+       
+       
+        //TODO: RESET MIX TO PERMANENTLY DEPLETE FROM INVENTORY
+        self.cashSupply += totalSales
+        self.lemonsToMix = 0
+        self.iceToMix = 0
+        
+        let numGlassesSold=totalSales/self.PAYOUT
+        print("4)RESULTS: Sold: \(numGlassesSold) glasses of lemonade. No Sales: \(dailyCustomers.count - numGlassesSold), Total Cash: \(self.cashSupply)")
+        print("#######DAY OVER########")
+        if !self.gameStarted {
+            self.gameStarted = true
+        }
+        if(cashSupply==0){
+           self.endGame()
+        }else{
+            print("PLAY AGAIN!!!")
+        }
         updateMainView()
     }
     
+    func initGame(){
+        self.lemonSupply = self.LEMON_SUPPLY_DEFAULT
+        self.iceSupply = self.ICE_SUPPLY_DEFAULT
+        self.cashSupply = self.CASH_DEFAULT
+        self.lemonsToMix = 0
+        self.iceToMix = 0
+        
+    }
     
+    func endGame(){
+        print("GAME OVER")
+        self.initGame()
+    }
     
     //Misc
     func updateMainView () {
@@ -262,8 +295,8 @@ class ViewController: UIViewController {
         self.availableCashLabel.sizeToFit()
         
         //Update Supply
-        self.lemonSupplyLabel.text = "\(self.purchasedLemonSupply)"
-        self.iceSupplyLabel.text = "\(self.purchasedIceSupply)"
+        self.lemonPurchaseLabel.text = "\(self.purchasedLemonSupply)"
+        self.icePurchaseLabel.text = "\(self.purchasedIceSupply)"
         
         //Update Mix
         self.lemonMixLabel.text = "\(lemonsToMix)"
@@ -271,13 +304,13 @@ class ViewController: UIViewController {
       
     }
     
-    func showAlertWithText(
+    func showOkAlertWithText(
         header: String = "Warning",
         message: String,
         handler: ((UIAlertAction!) -> Void)? = nil,
         completion: (() -> Void)? = nil){
             
-            var alert  = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            let alert  = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: handler))
             self.presentViewController(alert, animated: true, completion: completion)
     }

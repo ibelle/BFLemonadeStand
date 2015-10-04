@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPF-3I-cql">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPF-3I-cql">
                                 <rect key="frame" x="9" y="28" width="315" height="112"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Lemons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3Q-bi-lrz">
@@ -116,7 +117,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oa5-kV-NNB">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oa5-kV-NNB">
                                 <rect key="frame" x="9" y="299" width="315" height="131"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2: Mix Your Lemonade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-vf-LAo">
@@ -126,15 +127,6 @@
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="8" y="8" width="213" height="21"/>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLg-7g-HbR">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="69" y="64" width="66" height="23"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB7-ZO-pQe">
@@ -164,13 +156,13 @@
                                             <rect key="frame" x="84" y="32" width="232" height="21"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCy-yi-fP5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ice:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCy-yi-fP5">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="69" y="107" width="28" height="23"/>
+                                            <rect key="frame" x="160" y="103" width="28" height="23"/>
                                         </variation>
                                     </label>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12f-g7-eH4">
@@ -249,12 +241,20 @@
                                             <action selector="removeIceFromMix:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Jm-zt-1PA"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemons:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLg-7g-HbR">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="122" y="64" width="66" height="23"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.82816247460000003" blue="0.077888488929999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="8kN-vf-LAo"/>
-                                        <exclude reference="HLg-7g-HbR"/>
                                         <exclude reference="LB7-ZO-pQe"/>
                                         <exclude reference="uHk-Rw-tOn"/>
                                         <exclude reference="HxI-b7-QnO"/>
@@ -263,12 +263,12 @@
                                         <exclude reference="Mz6-lu-Hhp"/>
                                         <exclude reference="alF-TK-uXA"/>
                                         <exclude reference="JlI-Mc-tot"/>
+                                        <exclude reference="HLg-7g-HbR"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="8kN-vf-LAo"/>
-                                        <include reference="HLg-7g-HbR"/>
                                         <include reference="LB7-ZO-pQe"/>
                                         <include reference="uHk-Rw-tOn"/>
                                         <include reference="HxI-b7-QnO"/>
@@ -277,10 +277,11 @@
                                         <include reference="Mz6-lu-Hhp"/>
                                         <include reference="alF-TK-uXA"/>
                                         <include reference="JlI-Mc-tot"/>
+                                        <include reference="HLg-7g-HbR"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-3F-9N3">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-3F-9N3">
                                 <rect key="frame" x="9" y="447" width="315" height="114"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 3: Start Selling Your Lemonade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbD-tR-NR7">
@@ -332,7 +333,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALd-2h-e4z">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALd-2h-e4z">
                                 <rect key="frame" x="9" y="148" width="315" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1: Purchase Supplies " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co1-Et-7wa">
@@ -344,22 +345,13 @@
                                             <rect key="frame" x="8" y="8" width="177" height="20"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="Lemons@$2/each" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGi-GL-25y">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Ice Cubes@$1/each:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-1z-WOB">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="21" y="35" width="140" height="23"/>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Ice Cubes@$1/each" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-1z-WOB">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="21" y="82" width="158" height="23"/>
+                                            <rect key="frame" x="21" y="82" width="163" height="23"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdF-Ys-p81">
@@ -368,7 +360,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="240" y="79" width="21" height="21"/>
+                                            <rect key="frame" x="229" y="79" width="45" height="21"/>
                                         </variation>
                                     </label>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhe-yl-GBF">
@@ -415,7 +407,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="240" y="36" width="21" height="21"/>
+                                            <rect key="frame" x="229" y="36" width="45" height="21"/>
                                         </variation>
                                     </label>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rC-QR-avf">
@@ -456,12 +448,20 @@
                                             <action selector="iceSupplyAdded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Exh-RV-p7r"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="Lemons@$2/each:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGi-GL-25y">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="39" y="45" width="145" height="23"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82668717280000004" green="0.87595533290000005" blue="0.84346064789999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="co1-Et-7wa"/>
-                                        <exclude reference="FGi-GL-25y"/>
                                         <exclude reference="eIG-1z-WOB"/>
                                         <exclude reference="cdF-Ys-p81"/>
                                         <exclude reference="Yhe-yl-GBF"/>
@@ -469,12 +469,12 @@
                                         <exclude reference="2me-FD-miI"/>
                                         <exclude reference="0rC-QR-avf"/>
                                         <exclude reference="MzC-jx-OYt"/>
+                                        <exclude reference="FGi-GL-25y"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="co1-Et-7wa"/>
-                                        <include reference="FGi-GL-25y"/>
                                         <include reference="eIG-1z-WOB"/>
                                         <include reference="cdF-Ys-p81"/>
                                         <include reference="Yhe-yl-GBF"/>
@@ -482,6 +482,7 @@
                                         <include reference="2me-FD-miI"/>
                                         <include reference="0rC-QR-avf"/>
                                         <include reference="MzC-jx-OYt"/>
+                                        <include reference="FGi-GL-25y"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -561,11 +562,11 @@
                         <outlet property="availableCashLabel" destination="2Jl-lM-YIK" id="cdf-Wy-y1Y"/>
                         <outlet property="iceInventoryLabel" destination="TnC-4r-qnF" id="4E1-8S-SPC"/>
                         <outlet property="iceMixLabel" destination="uHk-Rw-tOn" id="UVc-QK-Hls"/>
-                        <outlet property="iceSupplyLabel" destination="cdF-Ys-p81" id="nM5-CD-1xV"/>
+                        <outlet property="icePurchaseLabel" destination="cdF-Ys-p81" id="QR4-Tv-aaF"/>
                         <outlet property="inventoryContinerView" destination="xPF-3I-cql" id="jFd-VB-6kB"/>
                         <outlet property="lemonInventoryLabel" destination="p3Q-bi-lrz" id="LBR-F1-Uwr"/>
                         <outlet property="lemonMixLabel" destination="LB7-ZO-pQe" id="gTl-vj-jQC"/>
-                        <outlet property="lemonSupplyLabel" destination="2me-FD-miI" id="Zt6-of-7EX"/>
+                        <outlet property="lemonPurchaseLabel" destination="2me-FD-miI" id="0jW-Gq-GEO"/>
                         <outlet property="mixContainerView" destination="Oa5-kV-NNB" id="DYC-bB-Xdd"/>
                         <outlet property="removeIceFromMixButton" destination="JlI-Mc-tot" id="Si3-5T-1pv"/>
                         <outlet property="removeIceSupplyButton" destination="c6g-X6-oS3" id="ChT-1r-pQM"/>

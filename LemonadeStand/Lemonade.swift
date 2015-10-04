@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Lemonade : Printable {
+struct Lemonade : CustomStringConvertible {
     var lemonAmt:Double = 1.0
     var iceAmt:Double  = 1.0
     var acidity:Double {
