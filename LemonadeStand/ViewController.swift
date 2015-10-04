@@ -200,6 +200,17 @@ class ViewController: UIViewController {
     
     
 
+    @IBAction func resetButtonPressed(sender: UIButton) {
+
+        let resetAlertView = UIAlertController(title: "Are You Sure?", message: "If you continue, game will start over", preferredStyle: UIAlertControllerStyle.Alert)
+        resetAlertView.addAction(UIAlertAction(title: "Reset", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
+            self.resetView(true)
+            self.updateMainView()
+        }))
+        resetAlertView.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        presentViewController(resetAlertView, animated: true, completion: nil)
+        
+    }
     
     
     func createTastePref() -> Double {
@@ -217,16 +228,27 @@ class ViewController: UIViewController {
         return customerCollection
     }
     
-    //Sell Action
+    func resetView(resetGame: Bool = false){
+        self.lemonsToMix = 0
+        self.iceToMix = 0
+        lemonsToPurchase = 0
+        iceCubesToPurchase = 0
+        if resetGame {
+            self.supplies = Supplies(aMoney: 10, aLemons: 1, aIcecubes: 1)
+        }
+    }
+    
+    //Start Action
     @IBAction func startDayPressed(sender: UIButton) {
       
         var totalSales:Int=0
         //Mix Lemonade
-        if(lemonsToMix == 0 || iceToMix == 0){
+        if(lemonsToMix == 0 && iceToMix == 0){
             print("NOTHING TO MIX FOR LEMONADE. ADD MORE ITEMS TO MIX OR PURCHASE ADDITIONAL SUPPLIES")
             self.showAlertWithText("Nothing to Mix",message:"Nothing To Mix For Lemonade. Add More Items To Mix Or Purchase Additional Supplies")
             return
         }
+        
             print("#######STARTING DAY########")
             //1. Create Lemonade, print LemonadeFlavorType
             let dailyLemonade:Lemonade = Lemonade(lemons: Double(supplies.lemonSupply), ice: Double(supplies.iceSupply))
@@ -252,14 +274,16 @@ class ViewController: UIViewController {
        
         //TODO: RESET MIX TO PERMANENTLY DEPLETE FROM INVENTORY
         self.supplies.cashSupply += totalSales
-        self.lemonsToMix = 0
-        self.iceToMix = 0
-        lemonsToPurchase = 0
-        iceCubesToPurchase = 0
+        resetView()
   
         
         let numGlassesSold=totalSales/self.PAYOUT
         showAlertWithText("Day Results", message:"Day RESULTS: Customers: \(dailyCustomers.count) Sold: \(numGlassesSold) glasses of lemonade. No Purchase: \(dailyCustomers.count - numGlassesSold), Total Cash: \(self.supplies.cashSupply)")
+        if(supplies.cashSupply==0 && (supplies.lemonSupply==0 || supplies.iceSupply == 0)){
+           // showAlertWithText("Game Over", message:"Try Again") GET ERROR HERE NEED TO FIX
+            print("GAME OVER 😢")
+            resetView(true)
+        }
         updateMainView()
     }
     

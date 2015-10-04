@@ -17,6 +17,7 @@
 		0551D0221A99B3F10068D2A8 /* Lemonade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551D0211A99B3F10068D2A8 /* Lemonade.swift */; };
 		40ABEBC01BC1800000A3A160 /* Supplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABEBBF1BC1800000A3A160 /* Supplies.swift */; settings = {ASSET_TAGS = (); }; };
 		40ABEBC21BC1842400A3A160 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABEBC11BC1842400A3A160 /* Price.swift */; settings = {ASSET_TAGS = (); }; };
+		40ABEBC41BC1C5E100A3A160 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABEBC31BC1C5E100A3A160 /* Weather.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0551D0211A99B3F10068D2A8 /* Lemonade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lemonade.swift; sourceTree = "<group>"; };
 		40ABEBBF1BC1800000A3A160 /* Supplies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Supplies.swift; sourceTree = "<group>"; };
 		40ABEBC11BC1842400A3A160 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = ../Price.swift; sourceTree = "<group>"; };
+		40ABEBC31BC1C5E100A3A160 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				0551D0211A99B3F10068D2A8 /* Lemonade.swift */,
 				40ABEBC11BC1842400A3A160 /* Price.swift */,
 				40ABEBBF1BC1800000A3A160 /* Supplies.swift */,
+				40ABEBC31BC1C5E100A3A160 /* Weather.swift */,
 			);
 			path = LemonadeStand;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				0551D0221A99B3F10068D2A8 /* Lemonade.swift in Sources */,
 				050EF38F1A982002002F2F73 /* AppDelegate.swift in Sources */,
 				40ABEBC21BC1842400A3A160 /* Price.swift in Sources */,
+				40ABEBC41BC1C5E100A3A160 /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
