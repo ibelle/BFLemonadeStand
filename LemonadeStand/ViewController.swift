@@ -230,7 +230,8 @@ class ViewController: UIViewController {
         let numGlassesSold=totalSales/self.PAYOUT
         showAlertWithText("Day Results", message:"Day RESULTS: Customers: \(dailyCustomers.count) Sold: \(numGlassesSold) glasses of lemonade. No Purchase: \(dailyCustomers.count - numGlassesSold), Total Cash: \(self.supplies.cashSupply)")
         if(supplies.cashSupply==0 && (supplies.lemonSupply==0 || supplies.iceSupply == 0)){
-           // showAlertWithText("Game Over", message:"Try Again") GET ERROR HERE NEED TO FIX
+           // showAlertWithText("Game Over", message:"Try Again") 
+         //TODO: GET ERROR HERE NEED TO FIX
             print("GAME OVER 😢")
             resetView(true)
         }
