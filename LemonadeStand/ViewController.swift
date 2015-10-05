@@ -27,6 +27,10 @@ class ViewController: UIViewController {
     var lemonsToMix:Int = 0
     var iceToMix:Int = 0
     
+    //Weather
+    var weatherArray:[Weather]=[]
+    var todaysWeather:Weather = Weather()
+    
     //Containers
     @IBOutlet weak var suppliesContainerView: UIView!
     @IBOutlet weak var inventoryContinerView: UIView!
@@ -49,6 +53,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var icePurchaseLabel: UILabel!
    
     
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var weatherLabel: UILabel!
 
     @IBOutlet weak var lemonMixLabel: UILabel!
     @IBOutlet weak var iceMixLabel: UILabel!
@@ -57,40 +63,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var addIceToMixButton: UIButton!
     @IBOutlet weak var removeIceFromMixButton: UIButton!
-    
-    
-    
-    //Calculated Properties
-    /*var purchasedLemonSupply:Int {
-        if( self.gameStarted){
-            return lemonSupply
-        }
-        let additionalSupplyValue = lemonSupply - self.LEMON_SUPPLY_DEFAULT
-        if additionalSupplyValue >= 0 {
-            return additionalSupplyValue
-        }else {
-            return 0
-        }
-    }
-    
-    var purchasedIceSupply:Int {
-        if( self.gameStarted){
-            return iceSupply
-        }
-        
-        let additionalSupplyValue = iceSupply - self.ICE_SUPPLY_DEFAULT
-        if additionalSupplyValue >= 0 {
-            return additionalSupplyValue
-        }else {
-            return 0
-        }
-    }*/
-    
-    
+
     
     //Top Level Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        simulateWeatherToday()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -198,8 +176,6 @@ class ViewController: UIViewController {
     }
     
     
-    
-
     @IBAction func resetButtonPressed(sender: UIButton) {
 
         let resetAlertView = UIAlertController(title: "Are You Sure?", message: "If you continue, game will start over", preferredStyle: UIAlertControllerStyle.Alert)
@@ -212,33 +188,7 @@ class ViewController: UIViewController {
         
     }
     
-    
-    func createTastePref() -> Double {
-        let rand = Double(arc4random() % (UInt32(RAND_MAX) + 1))
-        return round( (rand / Double(RAND_MAX)) * 100) / 100 //Round to 2 Decimal Places
-    }
-    
-    func generateCustomersForDay() -> [Customer] {
-        let numCustomers = Int(arc4random_uniform(UInt32(MAX_CUSTOMERS))) + 1
-        var customerCollection=[Customer]()
-        for var i=0; i<numCustomers; i++ {
-            customerCollection.append(Customer(id: i,tastePref: self.createTastePref()))
-        }
-        
-        return customerCollection
-    }
-    
-    func resetView(resetGame: Bool = false){
-        self.lemonsToMix = 0
-        self.iceToMix = 0
-        lemonsToPurchase = 0
-        iceCubesToPurchase = 0
-        if resetGame {
-            self.supplies = Supplies(aMoney: 10, aLemons: 1, aIcecubes: 1)
-        }
-    }
-    
-    //Start Action
+       //Start Action
     @IBAction func startDayPressed(sender: UIButton) {
       
         var totalSales:Int=0
@@ -284,11 +234,64 @@ class ViewController: UIViewController {
             print("GAME OVER 😢")
             resetView(true)
         }
+        simulateWeatherToday()
         updateMainView()
     }
     
    
     //Misc
+    func createTastePref() -> Double {
+        let rand = Double(arc4random() % (UInt32(RAND_MAX) + 1))
+        return round( (rand / Double(RAND_MAX)) * 100) / 100 //Round to 2 Decimal Places
+    }
+    
+    func generateCustomersForDay() -> [Customer] {
+        let numCustomers = Int(arc4random_uniform(UInt32( ((MAX_CUSTOMERS + self.todaysWeather.influence) % MAX_CUSTOMERS) ))) + 1
+        
+        var customerCollection=[Customer]()
+        for var i=0; i<numCustomers; i++ {
+            customerCollection.append(Customer(id: i,tastePref: self.createTastePref()))
+        }
+        
+        return customerCollection
+    }
+    
+    func resetView(resetGame: Bool = false){
+        self.lemonsToMix = 0
+        self.iceToMix = 0
+        lemonsToPurchase = 0
+        iceCubesToPurchase = 0
+        if resetGame {
+            self.supplies = Supplies(aMoney: 10, aLemons: 1, aIcecubes: 1)
+            simulateWeatherToday()
+        }
+    }
+    
+
+    func initWeather(){
+        
+        let coldWeather = Weather(name:"Cold", image: UIImage(named: "cold.png"), influence:-4, temp: 30)
+        let mildWeather = Weather(name:"Mild", image: UIImage(named: "mild.png"), influence:0,temp: 70)
+        let warmWeather = Weather(name:"Warm", image: UIImage(named: "warm.png"), influence:6,temp: 95)
+    
+        self.weatherArray = [coldWeather,mildWeather,warmWeather]
+    }
+    
+    func simulateWeatherToday() {
+        if(self.weatherArray.isEmpty){
+            initWeather()
+        }
+        var nextWeather = Weather()
+        repeat{
+            let index = Int(arc4random_uniform((UInt32(weatherArray.count))))
+             nextWeather = weatherArray[index]
+        } while nextWeather.name == self.todaysWeather.name
+
+        self.todaysWeather = nextWeather
+        print("All Weather - \(self.weatherArray)")
+        print ("Today's Weather is:\(self.todaysWeather) ")
+    }
+    
     func updateMainView () {
         //Update Inventory
         self.availableCashLabel.text = "$\(self.supplies.cashSupply)"
@@ -304,6 +307,10 @@ class ViewController: UIViewController {
         self.lemonMixLabel.text = "\(lemonsToMix)"
         self.iceMixLabel.text = "\(iceToMix)"
       
+        //update weatherImage & Label
+        self.weatherImageView.image = self.todaysWeather.image
+        self.weatherLabel.text = self.todaysWeather.name
+        self.weatherLabel.sizeToFit()
     }
     
     func showAlertWithText(

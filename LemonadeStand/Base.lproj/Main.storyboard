@@ -56,6 +56,16 @@
                                         <color key="textColor" red="0.70972741169999998" green="0.02208776384" blue="0.041374219900000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4p-z7-VS0">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <color key="textColor" red="0.58351702716843723" green="0.71176818818098697" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.23650663920000001" green="0.37638443030000002" blue="0.73092196129999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="288" y="74" width="42" height="21"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.82816247460000003" blue="0.077888488929999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -83,6 +93,7 @@
                                         <exclude reference="2Jl-lM-YIK"/>
                                         <exclude reference="LyN-pg-fhe"/>
                                         <exclude reference="Vr5-nN-b1Q"/>
+                                        <exclude reference="E4p-z7-VS0"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="1x3-Hp-cpP"/>
@@ -110,6 +121,7 @@
                                         <include reference="2Jl-lM-YIK"/>
                                         <include reference="LyN-pg-fhe"/>
                                         <include reference="Vr5-nN-b1Q"/>
+                                        <include reference="E4p-z7-VS0"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="1x3-Hp-cpP"/>
@@ -318,6 +330,7 @@
                                     <constraint firstItem="uHk-Rw-tOn" firstAttribute="leading" secondItem="LB7-ZO-pQe" secondAttribute="leading" id="etu-8p-ANB"/>
                                     <constraint firstItem="12f-g7-eH4" firstAttribute="firstBaseline" secondItem="Mz6-lu-Hhp" secondAttribute="firstBaseline" id="fMB-dx-J5n"/>
                                     <constraint firstItem="LB7-ZO-pQe" firstAttribute="centerY" secondItem="Mz6-lu-Hhp" secondAttribute="centerY" id="g1X-xW-LKq"/>
+                                    <constraint firstAttribute="trailing" secondItem="HxI-b7-QnO" secondAttribute="trailing" constant="84" id="hGF-gs-skd"/>
                                     <constraint firstItem="Mz6-lu-Hhp" firstAttribute="leading" secondItem="HLg-7g-HbR" secondAttribute="trailing" constant="8" symbolic="YES" id="mvv-I4-iPg"/>
                                     <constraint firstItem="Mz6-lu-Hhp" firstAttribute="top" secondItem="HxI-b7-QnO" secondAttribute="bottom" constant="7" id="tij-Ih-hqs"/>
                                     <constraint firstItem="HLg-7g-HbR" firstAttribute="centerY" secondItem="Mz6-lu-Hhp" secondAttribute="centerY" id="vmn-pX-DyL"/>
@@ -342,6 +355,7 @@
                                         <exclude reference="19V-OB-ntL"/>
                                         <exclude reference="Ndy-V8-oX3"/>
                                         <exclude reference="W57-nf-AaR"/>
+                                        <exclude reference="hGF-gs-skd"/>
                                         <exclude reference="22W-vB-cIh"/>
                                         <exclude reference="FJx-J1-W1m"/>
                                         <exclude reference="WCf-cF-bhB"/>
@@ -389,6 +403,7 @@
                                         <include reference="19V-OB-ntL"/>
                                         <include reference="Ndy-V8-oX3"/>
                                         <include reference="W57-nf-AaR"/>
+                                        <include reference="hGF-gs-skd"/>
                                         <include reference="22W-vB-cIh"/>
                                         <include reference="FJx-J1-W1m"/>
                                         <include reference="WCf-cF-bhB"/>
@@ -506,8 +521,12 @@
                                     <constraint firstItem="RbD-tR-NR7" firstAttribute="top" secondItem="Ser-3F-9N3" secondAttribute="topMargin" id="00h-1A-hoa"/>
                                     <constraint firstAttribute="bottom" secondItem="d0E-ts-y47" secondAttribute="bottom" constant="16" id="4JE-0t-zTT"/>
                                     <constraint firstItem="RbD-tR-NR7" firstAttribute="leading" secondItem="Ser-3F-9N3" secondAttribute="leadingMargin" id="Gtv-WY-w9f"/>
-                                    <constraint firstItem="nPR-kE-ilC" firstAttribute="top" secondItem="0iR-gp-dur" secondAttribute="bottom" constant="8" symbolic="YES" id="IV1-uO-raX"/>
-                                    <constraint firstItem="0iR-gp-dur" firstAttribute="top" secondItem="RbD-tR-NR7" secondAttribute="bottom" constant="16" id="Id6-GP-beF"/>
+                                    <constraint firstItem="nPR-kE-ilC" firstAttribute="top" secondItem="0iR-gp-dur" secondAttribute="bottom" constant="8" symbolic="YES" id="IV1-uO-raX">
+                                        <variation key="widthClass=compact" constant="17"/>
+                                    </constraint>
+                                    <constraint firstItem="0iR-gp-dur" firstAttribute="top" secondItem="RbD-tR-NR7" secondAttribute="bottom" constant="16" id="Id6-GP-beF">
+                                        <variation key="widthClass=compact" constant="7"/>
+                                    </constraint>
                                     <constraint firstItem="d0E-ts-y47" firstAttribute="trailing" secondItem="Ser-3F-9N3" secondAttribute="trailingMargin" id="l7h-Cj-9hA"/>
                                     <constraint firstItem="nPR-kE-ilC" firstAttribute="centerX" secondItem="0iR-gp-dur" secondAttribute="centerX" id="nct-P8-TC1"/>
                                     <constraint firstItem="d0E-ts-y47" firstAttribute="top" secondItem="nPR-kE-ilC" secondAttribute="top" id="pbm-46-kfe"/>
@@ -887,6 +906,8 @@
                         <outlet property="removeLemonSupplyButton" destination="Yhe-yl-GBF" id="Gvb-xX-kr5"/>
                         <outlet property="salesContainerView" destination="Ser-3F-9N3" id="UFO-Xp-lmE"/>
                         <outlet property="suppliesContainerView" destination="ALd-2h-e4z" id="Mhh-qP-IVr"/>
+                        <outlet property="weatherImageView" destination="LyN-pg-fhe" id="t5O-k2-hU6"/>
+                        <outlet property="weatherLabel" destination="E4p-z7-VS0" id="tJr-ch-ws2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

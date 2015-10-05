@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 struct Weather: CustomStringConvertible {
     var name = ""
-    var image = UIImage(named:"")
+    var image = UIImage(named: "")
     var influence:Int = 0
+    var temp=0.0
     
     var description: String {
-        return "Weather: Name-\(name), Image-\(image), Incluence-\(influence)"
+        return "Weather: Name-\(name), Image-\(image), temp-\(temp), Incluence-\(influence)"
     }
 }
