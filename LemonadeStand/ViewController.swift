@@ -227,13 +227,13 @@ class ViewController: UIViewController {
         resetView()
   
         
-        let numGlassesSold=totalSales/self.PAYOUT
-        showAlertWithText("Day Results", message:"Day RESULTS: Customers: \(dailyCustomers.count) Sold: \(numGlassesSold) glasses of lemonade. No Purchase: \(dailyCustomers.count - numGlassesSold), Total Cash: \(self.supplies.cashSupply)")
-        if(supplies.cashSupply==0 && (supplies.lemonSupply==0 || supplies.iceSupply == 0)){
-           // showAlertWithText("Game Over", message:"Try Again") 
-         //TODO: GET ERROR HERE NEED TO FIX
+           if(supplies.cashSupply==0 && (supplies.lemonSupply==0 || supplies.iceSupply == 0)){
+           showAlertWithText("Game Over", message:"D'oh! You ran out of money and supplies 😢. Try Again!")
             print("GAME OVER 😢")
             resetView(true)
+           }else{
+            let numGlassesSold=totalSales/self.PAYOUT
+            showAlertWithText("Day Results", message:"Day RESULTS: Customers: \(dailyCustomers.count) Sold: \(numGlassesSold) glasses of lemonade. No Purchase: \(dailyCustomers.count - numGlassesSold), Total Cash: \(self.supplies.cashSupply)")
         }
         simulateWeatherToday()
         updateMainView()
